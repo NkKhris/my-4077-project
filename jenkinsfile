@@ -1,0 +1,17 @@
+node{
+    stage('checkout SCM'){
+        git branch: 'master' , url:'git@github.com:NkKhris/my-4077-project.git'
+    }
+    stage('install node modules'){
+        sh "npm install"
+    }
+    stage('Test'){
+        sh "npm run test-headless"
+    }
+    stage('Build'){
+       sh "npm run build --prod"
+    }
+    stage('copy'){
+       sh "cp -a /var/lib/jenkins/workspace/freestyle/dist/AppCi/. /var/www/appci/html/"
+    }    
+}
