@@ -10,8 +10,5 @@ node{
     }
     stage('Build'){
        sh "npm run build --prod"
-    }
-    stage('copy'){
-       sh "cp -a /var/lib/jenkins/workspace/freestyle/dist/AppCi/. /var/www/appci/html/"
-    }    
+    }   
 }
